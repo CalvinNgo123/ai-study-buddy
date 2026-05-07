@@ -1,0 +1,13 @@
+# Copy this file to terraform.tfvars and customize
+
+# Docker images - use local builds for development
+backend_image   = "study-guide-backend:latest"
+frontend_image  = "study-guide-frontend:latest"
+ollama_image    = "ollama/ollama:latest"
+
+# AI Model
+ollama_model    = "llama3.2"
+
+# Namespace
+namespace       = "study-guide"
+app_name        = "study-guide"

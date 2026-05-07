@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: study-guide-frontend
+  namespace: study-guide
+  labels:
+    app: study-guide-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: study-guide-frontend
+  template:
+    metadata:
+      labels:
+        app: study-guide-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: study-guide-frontend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: http
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"

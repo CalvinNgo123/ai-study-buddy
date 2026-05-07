@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: study-guide-ollama
+  namespace: study-guide
+  labels:
+    app: study-guide-ollama
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: study-guide-ollama
+  template:
+    metadata:
+      labels:
+        app: study-guide-ollama
+    spec:
+      containers:
+      - name: ollama
+        image: ollama/ollama:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 11434
+          name: http
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+        volumeMounts:
+        - name: ollama-data
+          mountPath: /root/.ollama
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "sleep 10 && ollama pull llama3.2"]
+      volumes:
+      - name: ollama-data
+        emptyDir: {}
