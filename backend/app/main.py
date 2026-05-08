@@ -123,30 +123,20 @@ async def generate_study_guide(text: str) -> StudyGuide:
 2. 5 quiz questions with 4 multiple choice options each
 3. A brief summary
 
-Format your response EXACTLY as JSON with this structure:
+CRITICAL: Return ONLY valid JSON. No markdown, no explanations outside JSON, no code blocks.
+
+Required JSON format:
 {{
   "flashcards": [
-    {{"id": 1, "front": "term or question", "back": "definition or answer", "category": "optional category"}}
+    {{"id": 1, "front": "question", "back": "answer", "category": "topic"}}
   ],
   "quiz": [
-    {{
-      "id": 1,
-      "question": "question text",
-      "options": ["option A", "option B", "option C", "option D"],
-      "correct_answer": 0,
-      "explanation": "why this is correct"
-    }}
+    {{"id": 1, "question": "question?", "options": ["A", "B", "C", "D"], "correct_answer": 0, "explanation": "why"}}
   ],
-  "summary": "brief summary of the content"
+  "summary": "brief summary"
 }}
 
-Rules:
-- Make flashcards concise and clear
-- Ensure quiz questions test understanding, not just memorization
-- Only return valid JSON, no markdown formatting
-- correct_answer must be 0-3 (index of correct option)
-
-Text to analyze:
+Text:
 {text}
 """
 
@@ -159,9 +149,10 @@ Text to analyze:
                 json={
                     "model": MODEL,
                     "prompt": prompt,
+                    "format": "json",
                     "stream": False,
                     "options": {
-                        "temperature": 0.7,
+                        "temperature": 0.3,
                         "num_predict": 2000
                     }
                 }
