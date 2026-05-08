@@ -119,8 +119,8 @@ async def generate_study_guide(text: str) -> StudyGuide:
         text = text[:max_length] + "..."
 
     prompt = f"""You are an expert study guide creator. Analyze the following text and create:
-1. 5-10 flashcards (key concepts and definitions)
-2. 5 quiz questions with 4 multiple choice options each
+1. 5-20 flashcards (key concepts and definitions)
+2. Up to 20 quiz questions with 4 multiple choice options each
 3. A brief summary
 
 CRITICAL: Return ONLY valid JSON. No markdown, no explanations outside JSON, no code blocks.
