@@ -8,8 +8,8 @@ An AI-powered study guide generator that transforms notes into flashcards and qu
 - **Text Input**: Direct paste for quick generation
 - **Flashcards**: Interactive flip cards with categories
 - **Quiz Mode**: Multiple choice with explanations and scoring
-- Download Files: Download as a .json file to save locally
-- Upload Saved Files: Upload saved .json file to continue studying
+- **Download Files**: Download as a .json file to save locally
+- **Upload Saved Files**: Upload saved .json file to continue studying
 - **Local AI**: Runs entirely on your machine using Ollama
 - **Monitoring**: Prometheus metrics and Grafana dashboards
 - **Kubernetes**: Full K8s deployment with Terraform
