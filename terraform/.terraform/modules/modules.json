@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"k8s_app","Source":"./modules/k8s","Dir":"modules/k8s"},{"Key":"monitoring","Source":"./modules/monitoring","Dir":"modules/monitoring"}]}

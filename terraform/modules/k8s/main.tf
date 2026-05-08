@@ -26,8 +26,8 @@ resource "kubernetes_deployment" "backend" {
 
       spec {
         container {
-          name  = "backend"
-          image = var.backend_image
+          name              = "backend"
+          image             = var.backend_image
           image_pull_policy = "IfNotPresent"
 
           port {
@@ -132,8 +132,8 @@ resource "kubernetes_deployment" "frontend" {
 
       spec {
         container {
-          name  = "frontend"
-          image = var.frontend_image
+          name              = "frontend"
+          image             = var.frontend_image
           image_pull_policy = "IfNotPresent"
 
           port {
@@ -211,8 +211,8 @@ resource "kubernetes_deployment" "ollama" {
 
       spec {
         container {
-          name  = "ollama"
-          image = var.ollama_image
+          name              = "ollama"
+          image             = var.ollama_image
           image_pull_policy = "IfNotPresent"
 
           port {

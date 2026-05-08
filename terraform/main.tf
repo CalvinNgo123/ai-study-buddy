@@ -33,12 +33,12 @@ resource "kubernetes_namespace" "study_guide" {
 module "k8s_app" {
   source = "./modules/k8s"
 
-  namespace     = kubernetes_namespace.study_guide.metadata[0].name
-  app_name      = var.app_name
-  backend_image = var.backend_image
+  namespace      = kubernetes_namespace.study_guide.metadata[0].name
+  app_name       = var.app_name
+  backend_image  = var.backend_image
   frontend_image = var.frontend_image
-  ollama_image  = var.ollama_image
-  ollama_model  = var.ollama_model
+  ollama_image   = var.ollama_image
+  ollama_model   = var.ollama_model
 }
 
 # Deploy monitoring stack
