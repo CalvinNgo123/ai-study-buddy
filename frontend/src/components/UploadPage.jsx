@@ -40,7 +40,7 @@ function UploadPage({ setStudyData }) {
     try {
       const response = await axios.post(`${API_URL}/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
-        timeout: 120000,
+        timeout: 300000,
       })
 
       setStudyData(response.data)
@@ -68,7 +68,7 @@ function UploadPage({ setStudyData }) {
       const response = await axios.post(
         `${API_URL}/generate-from-text`,
         { text: textInput },
-        { timeout: 120000 }
+        { timeout: 300000 }
       )
 
       setStudyData(response.data)
